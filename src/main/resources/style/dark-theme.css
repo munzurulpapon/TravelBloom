@@ -1,0 +1,257 @@
+/* =========================================================
+   TravelBloom — DARK THEME
+   Used by: dashboard.fxml, my-trips.fxml, trip-details.fxml
+   Import this AFTER style.css (it only adds new classes, it
+   doesn't touch the existing light-theme ones used by
+   transport/stay/expense/packing/etc — those get restyled in
+   a later phase).
+   ========================================================= */
+
+.dark-page {
+    -fx-background-color: linear-gradient(to bottom right, #0a1826, #0c2a3d 55%, #123b54);
+    -fx-font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+}
+
+/* ---------- Sidebar ---------- */
+
+.dark-sidebar {
+    -fx-background-color: rgba(6, 16, 26, 0.9);
+    -fx-padding: 24 16 24 16;
+    -fx-pref-width: 220;
+}
+
+.dark-logo {
+    -fx-font-size: 19px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+    -fx-padding: 0 0 16 6;
+}
+
+.dark-nav-item {
+    -fx-background-color: transparent;
+    -fx-text-fill: #a9c2d6;
+    -fx-font-size: 14px;
+    -fx-alignment: CENTER_LEFT;
+    -fx-padding: 10 14;
+    -fx-background-radius: 10;
+    -fx-cursor: hand;
+    -fx-max-width: Infinity;
+}
+
+.dark-nav-item:hover {
+    -fx-background-color: rgba(255,255,255,0.08);
+    -fx-text-fill: white;
+}
+
+.dark-nav-item-active {
+    -fx-background-color: rgba(30,136,229,0.28);
+    -fx-text-fill: #7fd8ff;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-alignment: CENTER_LEFT;
+    -fx-padding: 10 14;
+    -fx-background-radius: 10;
+    -fx-cursor: hand;
+    -fx-max-width: Infinity;
+}
+
+/* ---------- Headers / text ---------- */
+
+.dark-greeting-title {
+    -fx-font-size: 26px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+}
+
+.dark-page-title {
+    -fx-font-size: 26px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+}
+
+.dark-subtitle {
+    -fx-font-size: 13.5px;
+    -fx-text-fill: #9fb3c4;
+}
+
+.dark-section-title {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+}
+
+/* ---------- Stat cards ---------- */
+
+.stat-card-teal {
+    -fx-background-color: linear-gradient(to bottom right, rgba(20,150,170,0.35), rgba(10,60,80,0.30));
+    -fx-background-radius: 16;
+    -fx-padding: 18;
+    -fx-border-color: rgba(110,225,225,0.25);
+    -fx-border-radius: 16;
+    -fx-border-width: 1;
+}
+
+.stat-card-purple {
+    -fx-background-color: linear-gradient(to bottom right, rgba(130,95,210,0.35), rgba(60,40,110,0.30));
+    -fx-background-radius: 16;
+    -fx-padding: 18;
+    -fx-border-color: rgba(190,160,255,0.25);
+    -fx-border-radius: 16;
+    -fx-border-width: 1;
+}
+
+.stat-card-green {
+    -fx-background-color: linear-gradient(to bottom right, rgba(60,185,125,0.35), rgba(20,90,60,0.30));
+    -fx-background-radius: 16;
+    -fx-padding: 18;
+    -fx-border-color: rgba(130,235,175,0.25);
+    -fx-border-radius: 16;
+    -fx-border-width: 1;
+}
+
+.stat-label {
+    -fx-font-size: 13px;
+    -fx-text-fill: #cfe3ef;
+}
+
+.stat-value {
+    -fx-font-size: 26px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+}
+
+.stat-sub {
+    -fx-font-size: 12px;
+    -fx-text-fill: #9fb3c4;
+}
+
+/* ---------- Trip photo cards ---------- */
+
+.trip-photo-card {
+    -fx-background-radius: 16;
+    -fx-background-size: cover;
+    -fx-background-position: center center;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.45), 18, 0, 0, 6);
+}
+
+/* Used when no photo is available yet / API key not set */
+.trip-photo-card-fallback {
+    -fx-background-color: linear-gradient(to bottom right, #1E88E5, #14B8A6);
+    -fx-background-radius: 16;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.45), 18, 0, 0, 6);
+}
+
+.trip-card-overlay {
+    -fx-background-color: linear-gradient(to bottom, rgba(0,0,0,0.05) 30%, rgba(0,0,0,0.80));
+    -fx-background-radius: 16;
+    -fx-padding: 16;
+}
+
+.trip-card-badge {
+    -fx-background-color: rgba(255,255,255,0.18);
+    -fx-background-radius: 20;
+    -fx-padding: 3 12;
+    -fx-text-fill: white;
+    -fx-font-size: 11px;
+}
+
+.trip-card-title {
+    -fx-font-size: 19px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+}
+
+.trip-card-meta {
+    -fx-font-size: 12.5px;
+    -fx-text-fill: #dbe9f0;
+}
+
+/* ---------- Generic glass card ---------- */
+
+.dark-glass-card {
+    -fx-background-color: rgba(255,255,255,0.05);
+    -fx-background-radius: 14;
+    -fx-border-color: rgba(255,255,255,0.10);
+    -fx-border-radius: 14;
+    -fx-border-width: 1;
+    -fx-padding: 16;
+}
+
+/* ---------- Buttons ---------- */
+
+.dark-primary-button {
+    -fx-background-color: linear-gradient(to right, #1E88E5, #14B8A6);
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 10;
+    -fx-padding: 9 18;
+    -fx-cursor: hand;
+}
+
+.dark-primary-button:hover {
+    -fx-background-color: linear-gradient(to right, #1976D2, #0F9C8C);
+}
+
+.dark-secondary-button {
+    -fx-background-color: rgba(255,255,255,0.10);
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 10;
+    -fx-padding: 9 18;
+    -fx-cursor: hand;
+}
+
+.dark-secondary-button:hover {
+    -fx-background-color: rgba(255,255,255,0.18);
+}
+
+.dark-danger-button {
+    -fx-background-color: rgba(198, 40, 40, 0.25);
+    -fx-text-fill: #ff9a92;
+    -fx-font-weight: bold;
+    -fx-background-radius: 10;
+    -fx-padding: 9 18;
+    -fx-cursor: hand;
+}
+
+.dark-danger-button:hover {
+    -fx-background-color: rgba(198, 40, 40, 0.4);
+}
+
+/* ---------- Inputs on dark backgrounds ---------- */
+
+.dark-input {
+    -fx-background-color: rgba(255,255,255,0.08);
+    -fx-background-radius: 10;
+    -fx-border-color: rgba(255,255,255,0.15);
+    -fx-border-radius: 10;
+    -fx-padding: 8 12;
+    -fx-text-fill: white;
+    -fx-prompt-text-fill: #8ea3b3;
+}
+
+.dark-input:focused {
+    -fx-border-color: #1E88E5;
+}
+
+/* ---------- Weather / info pills (Trip Details) ---------- */
+
+.info-pill {
+    -fx-background-color: rgba(255,255,255,0.07);
+    -fx-background-radius: 14;
+    -fx-border-color: rgba(255,255,255,0.12);
+    -fx-border-radius: 14;
+    -fx-border-width: 1;
+    -fx-padding: 16 22;
+}
+
+.info-pill-label {
+    -fx-font-size: 12px;
+    -fx-text-fill: #9fb3c4;
+}
+
+.info-pill-value {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+}

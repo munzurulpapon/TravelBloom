@@ -1,0 +1,12 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="TravelBloom" type="Application" factoryName="Application">
+    <envs>
+      <env name="MAKCORPS_API_KEY" value="6ab7f82896192fd021f2470c" />
+    </envs>
+    <option name="MAIN_CLASS_NAME" value="com.travelbloom.Main" />
+    <module name="TravelBloom" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

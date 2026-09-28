@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane stylesheets="@../style/style.css, @../style/dark-theme.css"
+            styleClass="dark-page"
+            xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.travelbloom.controller.MyTripsController">
+
+    <left>
+
+        <VBox spacing="6" styleClass="dark-sidebar">
+
+            <Label text="🌸 TravelBloom" styleClass="dark-logo"/>
+
+            <VBox spacing="6">
+
+                <Button text="🏠  Dashboard" styleClass="dark-nav-item" fx:id="dashboardButton" maxWidth="Infinity"/>
+                <Button text="✈  My Trips" styleClass="dark-nav-item-active" fx:id="tripsButton" maxWidth="Infinity"/>
+                <Button text="📅  Itinerary" styleClass="dark-nav-item" fx:id="itineraryButton" maxWidth="Infinity"/>
+                <Button text="🚆  Transport" styleClass="dark-nav-item" fx:id="transportButton" maxWidth="Infinity"/>
+                <Button text="🏨  Stay" styleClass="dark-nav-item" fx:id="stayButton" maxWidth="Infinity"/>
+                <Button text="💰  Expenses" styleClass="dark-nav-item" fx:id="expensesButton" maxWidth="Infinity"/>
+                <Button text="🎒  Packing" styleClass="dark-nav-item" fx:id="packingButton" maxWidth="Infinity"/>
+                <Button text="🧠  Smart Planner" styleClass="dark-nav-item" fx:id="smartPlannerButton" maxWidth="Infinity"/>
+
+            </VBox>
+
+        </VBox>
+
+    </left>
+
+
+    <center>
+
+        <VBox spacing="22" style="-fx-padding: 35px;">
+
+            <VBox spacing="4">
+                <Label text="My Trips" styleClass="dark-page-title"/>
+                <Label text="Create and manage all your journeys in one place." styleClass="dark-subtitle"/>
+            </VBox>
+
+            <HBox spacing="15">
+
+                <TextField promptText="Search trips..." fx:id="searchField" styleClass="dark-input" HBox.hgrow="ALWAYS"/>
+
+                <Button text="+ Create New Trip" styleClass="dark-primary-button" fx:id="createTripButton"/>
+
+            </HBox>
+
+            <ScrollPane fitToWidth="true" VBox.vgrow="ALWAYS"
+                        style="-fx-background-color: transparent; -fx-background: transparent;">
+
+                <content>
+                    <FlowPane fx:id="tripsContainer" hgap="20" vgap="20"/>
+                </content>
+
+            </ScrollPane>
+
+        </VBox>
+
+    </center>
+
+</BorderPane>

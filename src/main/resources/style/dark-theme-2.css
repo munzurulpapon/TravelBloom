@@ -1,0 +1,170 @@
+/* =========================================================
+   TravelBloom — DARK THEME, PART 2
+   Extra classes for the sub-pages: Itinerary, Transport, Stay,
+   Expense, Packing. Import together with dark-theme.css.
+   ========================================================= */
+
+/* ---------- Page header bar (back button + title, used on every sub-page) ---------- */
+
+.dark-page-header {
+    -fx-spacing: 15;
+}
+
+.dark-page-header-title {
+    -fx-font-size: 26px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+}
+
+.dark-form-label {
+    -fx-font-size: 12.5px;
+    -fx-text-fill: #cfe3ef;
+    -fx-font-weight: bold;
+}
+
+/* ---------- Dark TableView ---------- */
+
+.dark-table-view {
+    -fx-background-color: rgba(255,255,255,0.05);
+    -fx-background-radius: 12;
+    -fx-border-color: rgba(255,255,255,0.10);
+    -fx-border-radius: 12;
+    -fx-border-width: 1;
+    -fx-table-cell-border-color: transparent;
+}
+
+.dark-table-view .column-header-background {
+    -fx-background-color: rgba(255,255,255,0.06);
+    -fx-background-radius: 12 12 0 0;
+}
+
+.dark-table-view .column-header,
+.dark-table-view .filler {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent transparent rgba(255,255,255,0.10) transparent;
+}
+
+.dark-table-view .column-header .label {
+    -fx-text-fill: #cfe3ef;
+    -fx-font-weight: bold;
+    -fx-font-size: 12px;
+}
+
+.dark-table-view .table-row-cell {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent transparent rgba(255,255,255,0.06) transparent;
+    -fx-text-fill: white;
+}
+
+.dark-table-view .table-row-cell:odd {
+    -fx-background-color: rgba(255,255,255,0.03);
+}
+
+.dark-table-view .table-row-cell:selected {
+    -fx-background-color: rgba(30,136,229,0.30);
+}
+
+.dark-table-view .table-cell {
+    -fx-text-fill: #e6eef4;
+    -fx-alignment: CENTER_LEFT;
+}
+
+.dark-table-view .scroll-bar {
+    -fx-background-color: transparent;
+}
+
+.dark-table-view .placeholder .label {
+    -fx-text-fill: #9fb3c4;
+}
+
+/* ---------- Combo box / date picker on dark backgrounds ---------- */
+
+.dark-combo-box,
+.dark-date-picker {
+    -fx-background-color: rgba(255,255,255,0.08);
+    -fx-background-radius: 10;
+    -fx-border-color: rgba(255,255,255,0.15);
+    -fx-border-radius: 10;
+    -fx-mark-color: white;
+}
+
+.dark-combo-box .list-cell,
+.dark-date-picker .text-field {
+    -fx-text-fill: white;
+    -fx-background-color: transparent;
+}
+
+.dark-combo-box .combo-box-popup .list-view {
+    -fx-background-color: #123B54;
+}
+
+.dark-combo-box .combo-box-popup .list-cell {
+    -fx-text-fill: white;
+}
+
+.dark-combo-box .combo-box-popup .list-cell:hover {
+    -fx-background-color: rgba(255,255,255,0.12);
+}
+
+/* ---------- Hotel / route result cards (Stay, Transport) ---------- */
+
+.result-card {
+    -fx-background-color: rgba(255,255,255,0.06);
+    -fx-background-radius: 12;
+    -fx-border-color: rgba(255,255,255,0.12);
+    -fx-border-radius: 12;
+    -fx-border-width: 1;
+    -fx-padding: 14;
+}
+
+.result-card .label {
+    -fx-text-fill: #e6eef4;
+}
+
+.result-card-title {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+}
+
+.result-card-price {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #6fe3a8;
+}
+
+/* ---------- Progress bar (Packing) ---------- */
+
+.dark-progress-bar .bar {
+    -fx-background-color: linear-gradient(to right, #1E88E5, #14B8A6);
+    -fx-background-insets: 0;
+    -fx-padding: 6px;
+}
+
+.dark-progress-bar .track {
+    -fx-background-color: rgba(255,255,255,0.10);
+    -fx-background-insets: 0;
+}
+
+/* ---------- Reminder toast (Packing suggestions) ---------- */
+
+.reminder-toast {
+    -fx-background-color: rgba(18, 59, 84, 0.92);
+    -fx-background-radius: 16;
+    -fx-border-color: rgba(20,184,166,0.6);
+    -fx-border-width: 1.5;
+    -fx-border-radius: 16;
+    -fx-padding: 16;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.4), 20, 0, 0, 8);
+}
+
+.reminder-toast-title {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #6fe3d4;
+}
+
+.reminder-toast-item {
+    -fx-font-size: 13px;
+    -fx-text-fill: #e6eef4;
+}

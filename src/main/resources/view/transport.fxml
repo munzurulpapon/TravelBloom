@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+
+<StackPane fx:id="rootPane"
+           stylesheets="@../style/style.css, @../style/dark-theme.css, @../style/dark-theme-2.css"
+           xmlns="http://javafx.com/javafx"
+           xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="com.travelbloom.controller.TransportController">
+
+    <StackPane style="-fx-background-color: #0a1826;">
+        <ImageView fx:id="backgroundImage" preserveRatio="false"/>
+        <Region style="-fx-background-color: linear-gradient(to bottom, rgba(6,16,26,0.75), rgba(6,16,26,0.92));"/>
+    </StackPane>
+
+    <ScrollPane fitToWidth="true" style="-fx-background-color: transparent; -fx-background: transparent;">
+
+        <content>
+
+            <VBox spacing="22">
+
+                <padding>
+                    <Insets top="30" right="45" bottom="40" left="45"/>
+                </padding>
+
+                <HBox alignment="CENTER_LEFT" styleClass="dark-page-header">
+                    <Button fx:id="backButton" text="← Back" onAction="#handleBack" styleClass="dark-secondary-button"/>
+                </HBox>
+
+                <VBox spacing="4">
+                    <Label text="🚆 Transport" styleClass="dark-page-header-title"/>
+                    <Label text="Find routes and manage your transportation for this trip" styleClass="dark-subtitle"/>
+                </VBox>
+
+
+                <!-- ROUTE FINDER -->
+                <VBox spacing="12" styleClass="dark-glass-card">
+
+                    <Label text="🔍 Find Routes" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: white;"/>
+                    <Label text="Estimated fares by mode of transport. Connect a live routing API (see TransportRouteService.java) for real-time fares."
+                           styleClass="dark-subtitle" wrapText="true"/>
+
+                    <HBox spacing="12" alignment="CENTER_LEFT">
+                        <TextField fx:id="routeFromField" promptText="From (e.g. Dhaka)" styleClass="dark-input" HBox.hgrow="ALWAYS"/>
+                        <Label text="→" style="-fx-text-fill: white; -fx-font-size: 16px;"/>
+                        <TextField fx:id="routeToField" promptText="To (e.g. Cox's Bazar)" styleClass="dark-input" HBox.hgrow="ALWAYS"/>
+                        <Button text="🔍 Find Routes" onAction="#handleFindRoutes" styleClass="dark-primary-button"/>
+                    </HBox>
+
+                    <VBox fx:id="routeResultsContainer" spacing="10"/>
+
+                </VBox>
+
+
+                <!-- ADD TRANSPORT FORM -->
+                <VBox spacing="15" styleClass="dark-glass-card">
+
+                    <Label text="Add Transport" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: white;"/>
+
+                    <GridPane hgap="15" vgap="12">
+
+                        <columnConstraints>
+                            <ColumnConstraints percentWidth="15"/>
+                            <ColumnConstraints percentWidth="35"/>
+                            <ColumnConstraints percentWidth="15"/>
+                            <ColumnConstraints percentWidth="35"/>
+                        </columnConstraints>
+
+                        <Label text="Type:" styleClass="dark-form-label" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                        <ComboBox fx:id="transportTypeComboBox" promptText="Select transport" maxWidth="Infinity" styleClass="dark-combo-box"
+                                  GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                        <Label text="From:" styleClass="dark-form-label" GridPane.rowIndex="0" GridPane.columnIndex="2"/>
+                        <TextField fx:id="fromField" promptText="Starting location" maxWidth="Infinity" styleClass="dark-input"
+                                   GridPane.rowIndex="0" GridPane.columnIndex="3"/>
+
+                        <Label text="To:" styleClass="dark-form-label" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                        <TextField fx:id="toField" promptText="Destination" maxWidth="Infinity" styleClass="dark-input"
+                                   GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+                        <Label text="Date:" styleClass="dark-form-label" GridPane.rowIndex="1" GridPane.columnIndex="2"/>
+                        <DatePicker fx:id="datePicker" maxWidth="Infinity" styleClass="dark-date-picker"
+                                    GridPane.rowIndex="1" GridPane.columnIndex="3"/>
+
+                        <Label text="Time:" styleClass="dark-form-label" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                        <TextField fx:id="timeField" promptText="e.g. 08:30 AM" maxWidth="Infinity" styleClass="dark-input"
+                                   GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+                        <Label text="Cost:" styleClass="dark-form-label" GridPane.rowIndex="2" GridPane.columnIndex="2"/>
+                        <TextField fx:id="costField" promptText="Enter cost" maxWidth="Infinity" styleClass="dark-input"
+                                   GridPane.rowIndex="2" GridPane.columnIndex="3"/>
+
+                        <Label text="Notes:" styleClass="dark-form-label" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+                        <TextArea fx:id="notesArea" promptText="Additional notes..." prefRowCount="3" wrapText="true" maxWidth="Infinity" styleClass="dark-input"
+                                  GridPane.rowIndex="3" GridPane.columnIndex="1" GridPane.columnSpan="3"/>
+
+                    </GridPane>
+
+                    <HBox spacing="10">
+                        <Button text="Add Transport" onAction="#handleAddTransport" styleClass="dark-primary-button"/>
+                        <Button text="Edit Selected" onAction="#handleEditTransport" styleClass="dark-secondary-button"/>
+                        <Button text="Delete Selected" onAction="#handleDeleteTransport" styleClass="dark-danger-button"/>
+                        <Button text="Clear" onAction="#handleClear" styleClass="dark-secondary-button"/>
+                    </HBox>
+
+                </VBox>
+
+
+                <!-- TRANSPORT HISTORY TABLE -->
+                <VBox spacing="10" styleClass="dark-glass-card">
+
+                    <Label text="Transport History" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: white;"/>
+
+                    <TableView fx:id="transportTable" prefHeight="320" styleClass="dark-table-view" onMouseClicked="#handleTableSelection">
+                        <columns>
+                            <TableColumn fx:id="typeColumn" text="Type" prefWidth="100"/>
+                            <TableColumn fx:id="fromColumn" text="From" prefWidth="130"/>
+                            <TableColumn fx:id="toColumn" text="To" prefWidth="130"/>
+                            <TableColumn fx:id="dateColumn" text="Date" prefWidth="110"/>
+                            <TableColumn fx:id="timeColumn" text="Time" prefWidth="100"/>
+                            <TableColumn fx:id="costColumn" text="Cost" prefWidth="90"/>
+                            <TableColumn fx:id="notesColumn" text="Notes" prefWidth="180"/>
+                        </columns>
+                        <placeholder>
+                            <Label text="No transport added yet." styleClass="dark-subtitle"/>
+                        </placeholder>
+                    </TableView>
+
+                </VBox>
+
+            </VBox>
+
+        </content>
+
+    </ScrollPane>
+
+</StackPane>

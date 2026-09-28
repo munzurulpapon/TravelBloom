@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane stylesheets="@../style/style.css, @../style/dark-theme.css, @../style/dark-theme-2.css"
+            styleClass="dark-page"
+            xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.travelbloom.controller.SmartPlannerController">
+
+    <padding>
+        <Insets top="25" right="30" bottom="25" left="30"/>
+    </padding>
+
+    <top>
+        <VBox spacing="5">
+
+            <HBox alignment="CENTER_LEFT" spacing="15">
+
+                <Label text="🧠 Smart Planner" styleClass="dark-page-header-title"/>
+
+                <Region HBox.hgrow="ALWAYS"/>
+
+                <Button text="🤖 Chat Assistant" onAction="#handleOpenChat" styleClass="dark-primary-button"/>
+                <Button text="← Back to Dashboard" onAction="#handleBack" styleClass="dark-secondary-button"/>
+
+            </HBox>
+
+            <Label text="Pick a trip to get an at-a-glance readiness report" styleClass="dark-subtitle"/>
+
+        </VBox>
+    </top>
+
+
+    <center>
+
+        <HBox spacing="20">
+
+            <padding>
+                <Insets top="20"/>
+            </padding>
+
+            <!-- TRIP LIST -->
+            <VBox spacing="10" prefWidth="280" styleClass="dark-glass-card">
+
+                <Label text="Your Trips" style="-fx-font-size: 15px; -fx-font-weight: bold; -fx-text-fill: white;"/>
+
+                <ListView fx:id="tripListView" VBox.vgrow="ALWAYS" style="-fx-background-color: transparent; -fx-control-inner-background: transparent;"/>
+
+            </VBox>
+
+
+            <!-- INSIGHTS -->
+            <VBox spacing="12" HBox.hgrow="ALWAYS">
+
+                <Label fx:id="selectedTripLabel" text="🧠 Smart Analysis" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: white;"/>
+
+                <ScrollPane fitToWidth="true" VBox.vgrow="ALWAYS" style="-fx-background-color: transparent; -fx-background: transparent;">
+
+                    <content>
+                        <VBox fx:id="insightsContainer" spacing="12"/>
+                    </content>
+
+                </ScrollPane>
+
+            </VBox>
+
+        </HBox>
+
+    </center>
+
+</BorderPane>

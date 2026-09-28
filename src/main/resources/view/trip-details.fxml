@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<StackPane fx:id="rootPane"
+           stylesheets="@../style/style.css, @../style/dark-theme.css"
+           xmlns="http://javafx.com/javafx"
+           xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="com.travelbloom.controller.TripDetailsController">
+
+    <!-- ================= SLIDESHOW BACKGROUND ================= -->
+    <!-- Two stacked ImageViews cross-fade between destination photos
+         fetched from Pexels. A dark gradient overlay keeps the text
+         on top readable regardless of the photo. -->
+
+    <StackPane fx:id="slideshowPane" style="-fx-background-color: #0a1826;">
+        <ImageView fx:id="slideImageA" preserveRatio="false" opacity="1.0"/>
+        <ImageView fx:id="slideImageB" preserveRatio="false" opacity="0.0"/>
+        <Region style="-fx-background-color: linear-gradient(to bottom, rgba(6,16,26,0.55), rgba(6,16,26,0.85));"/>
+    </StackPane>
+
+
+    <!-- ================= CONTENT ================= -->
+
+    <ScrollPane fitToWidth="true" style="-fx-background-color: transparent; -fx-background: transparent;">
+
+        <content>
+
+            <VBox spacing="22">
+
+                <padding>
+                    <Insets top="30" right="45" bottom="40" left="45"/>
+                </padding>
+
+                <!-- BACK -->
+                <HBox alignment="CENTER_LEFT">
+                    <Button text="← Back to My Trips" fx:id="backButton" onAction="#handleBack" styleClass="dark-secondary-button"/>
+                </HBox>
+
+
+                <!-- TRIP HEADER -->
+                <VBox spacing="6">
+
+                    <Label fx:id="tripTitle" text="Dhaka Tour" style="-fx-font-size: 34px; -fx-font-weight: bold; -fx-text-fill: white;"/>
+                    <Label fx:id="tripDestination" text="📍 Dhaka" styleClass="dark-subtitle"/>
+                    <Label fx:id="tripDate" text="📅 2026-10-15 → 2026-10-18" styleClass="dark-subtitle"/>
+                    <Label fx:id="tripBudget" text="💰 Budget: ৳ 10000.00" styleClass="dark-subtitle"/>
+
+                    <Label fx:id="tripDescription"
+                           text="Trip description will appear here."
+                           style="-fx-text-fill: #dbe9f0; -fx-font-size: 13.5px;"
+                           wrapText="true"/>
+
+                </VBox>
+
+
+                <!-- WEATHER -->
+                <VBox spacing="14" styleClass="dark-glass-card">
+
+                    <Label text="🌤 Weather" styleClass="dark-section-title"/>
+
+                    <HBox spacing="16">
+
+                        <VBox styleClass="info-pill" HBox.hgrow="ALWAYS" alignment="CENTER">
+                            <Label text="Temperature" styleClass="info-pill-label"/>
+                            <Label fx:id="temperatureLabel" text="-- °C" styleClass="info-pill-value"/>
+                        </VBox>
+
+                        <VBox styleClass="info-pill" HBox.hgrow="ALWAYS" alignment="CENTER">
+                            <Label text="Condition" styleClass="info-pill-label"/>
+                            <Label fx:id="conditionLabel" text="Loading weather..." styleClass="info-pill-value"/>
+                        </VBox>
+
+                        <VBox styleClass="info-pill" HBox.hgrow="ALWAYS" alignment="CENTER">
+                            <Label text="Wind" styleClass="info-pill-label"/>
+                            <Label fx:id="windLabel" text="-- km/h" styleClass="info-pill-value"/>
+                        </VBox>
+
+                    </HBox>
+
+                </VBox>
+
+
+                <!-- LOCATION -->
+                <VBox spacing="10" styleClass="dark-glass-card">
+
+                    <Label text="📍 Location Information" styleClass="dark-section-title"/>
+
+                    <HBox spacing="16">
+
+                        <VBox styleClass="info-pill" HBox.hgrow="ALWAYS" alignment="CENTER_LEFT">
+                            <Label text="Latitude" styleClass="info-pill-label"/>
+                            <Label fx:id="latitudeLabel" text="--" styleClass="info-pill-value"/>
+                        </VBox>
+
+                        <VBox styleClass="info-pill" HBox.hgrow="ALWAYS" alignment="CENTER_LEFT">
+                            <Label text="Longitude" styleClass="info-pill-label"/>
+                            <Label fx:id="longitudeLabel" text="--" styleClass="info-pill-value"/>
+                        </VBox>
+
+                    </HBox>
+
+                </VBox>
+
+
+                <!-- NAVIGATION -->
+                <HBox spacing="12">
+
+                    <Button text="📅 Itinerary" fx:id="itineraryButton" onAction="#handleOpenItinerary" styleClass="dark-primary-button"/>
+                    <Button text="🚆 Transport" fx:id="transportButton" onAction="#handleOpenTransport" styleClass="dark-primary-button"/>
+                    <Button text="🏨 Stay" fx:id="stayButton" onAction="#handleOpenStay" styleClass="dark-primary-button"/>
+                    <Button text="💰 Expenses" fx:id="expenseButton" onAction="#handleOpenExpense" styleClass="dark-primary-button"/>
+                    <Button text="🎒 Packing" fx:id="packingButton" onAction="#handleOpenPacking" styleClass="dark-primary-button"/>
+                    <Button text="🧠 Smart Planner" fx:id="smartPlannerButton" onAction="#handleOpenSmartPlanner" styleClass="dark-primary-button"/>
+
+                </HBox>
+
+            </VBox>
+
+        </content>
+
+    </ScrollPane>
+
+</StackPane>

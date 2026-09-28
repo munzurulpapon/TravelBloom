@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<StackPane fx:id="rootPane"
+           stylesheets="@../style/style.css, @../style/dark-theme.css, @../style/dark-theme-2.css"
+           xmlns="http://javafx.com/javafx"
+           xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="com.travelbloom.controller.CreateTripController">
+
+    <ScrollPane fitToWidth="true"
+                style="-fx-background-color: transparent; -fx-background: transparent;">
+
+        <content>
+
+            <VBox spacing="22" alignment="TOP_CENTER" styleClass="dark-page">
+
+                <padding>
+                    <Insets top="30" right="45" bottom="40" left="45"/>
+                </padding>
+
+                <HBox alignment="CENTER_LEFT" styleClass="dark-page-header" maxWidth="720">
+                    <Button fx:id="backButton" text="← Back" styleClass="dark-secondary-button"/>
+                </HBox>
+
+                <VBox spacing="4" maxWidth="720">
+                    <Label text="✈ Create Trip" styleClass="dark-page-header-title"/>
+                    <Label text="Fill in the details for your next journey" styleClass="dark-subtitle"/>
+                </VBox>
+
+                <VBox spacing="16" styleClass="dark-glass-card" maxWidth="720">
+
+                    <VBox spacing="6">
+                        <Label text="Trip Title" styleClass="dark-form-label"/>
+                        <TextField fx:id="tripTitleField" promptText="e.g. Sylhet Getaway" styleClass="dark-input"/>
+                    </VBox>
+
+                    <VBox spacing="6">
+                        <Label text="Destination" styleClass="dark-form-label"/>
+                        <TextField fx:id="destinationField" promptText="e.g. Sylhet, Bangladesh" styleClass="dark-input"/>
+                    </VBox>
+
+                    <HBox spacing="16">
+                        <VBox spacing="6" HBox.hgrow="ALWAYS">
+                            <Label text="Start Date" styleClass="dark-form-label"/>
+                            <DatePicker fx:id="startDatePicker" maxWidth="Infinity" styleClass="dark-date-picker"/>
+                        </VBox>
+                        <VBox spacing="6" HBox.hgrow="ALWAYS">
+                            <Label text="End Date" styleClass="dark-form-label"/>
+                            <DatePicker fx:id="endDatePicker" maxWidth="Infinity" styleClass="dark-date-picker"/>
+                        </VBox>
+                    </HBox>
+
+                    <VBox spacing="6">
+                        <Label text="Budget (৳)" styleClass="dark-form-label"/>
+                        <TextField fx:id="budgetField" promptText="e.g. 15000" styleClass="dark-input"/>
+                    </VBox>
+
+                    <VBox spacing="6">
+                        <Label text="Description" styleClass="dark-form-label"/>
+                        <TextArea fx:id="descriptionField" promptText="Notes about this trip..." prefRowCount="4"
+                                  wrapText="true" styleClass="dark-input"/>
+                    </VBox>
+
+                    <Button fx:id="createButton" text="Create Trip" maxWidth="Infinity" styleClass="dark-primary-button"/>
+
+                </VBox>
+
+            </VBox>
+
+        </content>
+
+    </ScrollPane>
+
+</StackPane>

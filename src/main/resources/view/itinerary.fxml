@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+
+<StackPane fx:id="rootPane"
+           stylesheets="@../style/style.css, @../style/dark-theme.css, @../style/dark-theme-2.css"
+           xmlns="http://javafx.com/javafx"
+           xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="com.travelbloom.controller.ItineraryController">
+
+    <!-- Trip-location background -->
+    <StackPane style="-fx-background-color: #0a1826;">
+        <ImageView fx:id="backgroundImage" preserveRatio="false"/>
+        <Region style="-fx-background-color: linear-gradient(to bottom, rgba(6,16,26,0.75), rgba(6,16,26,0.92));"/>
+    </StackPane>
+
+    <ScrollPane fitToWidth="true" style="-fx-background-color: transparent; -fx-background: transparent;">
+
+        <content>
+
+            <VBox spacing="22">
+
+                <padding>
+                    <Insets top="30" right="45" bottom="40" left="45"/>
+                </padding>
+
+                <HBox alignment="CENTER_LEFT" styleClass="dark-page-header">
+                    <Button fx:id="backButton" text="←  Back" onAction="#handleBackToMyTrips" styleClass="dark-secondary-button"/>
+                    <Region HBox.hgrow="ALWAYS"/>
+                    <Label text="TRAVELBLOOM" style="-fx-font-size: 12px; -fx-font-weight: bold; -fx-text-fill: #9fb3c4;"/>
+                </HBox>
+
+                <VBox spacing="4">
+                    <Label fx:id="itineraryTitleLabel" text="My Itinerary" styleClass="dark-page-header-title"/>
+                    <Label text="Plan and manage your trip activities" styleClass="dark-subtitle"/>
+                </VBox>
+
+
+                <!-- ADD ACTIVITY CARD -->
+                <VBox spacing="15" styleClass="dark-glass-card">
+
+                    <Label fx:id="formTitleLabel" text="Add New Activity" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: white;"/>
+
+                    <GridPane hgap="12" vgap="12">
+
+                        <columnConstraints>
+                            <ColumnConstraints percentWidth="18"/>
+                            <ColumnConstraints percentWidth="32"/>
+                            <ColumnConstraints percentWidth="18"/>
+                            <ColumnConstraints percentWidth="32"/>
+                        </columnConstraints>
+
+                        <Label text="Day" styleClass="dark-form-label" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                        <TextField fx:id="dayField" promptText="Day 1" styleClass="dark-input"
+                                   GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                        <Label text="Time" styleClass="dark-form-label" GridPane.rowIndex="0" GridPane.columnIndex="2"/>
+                        <TextField fx:id="timeField" promptText="10:00 AM" styleClass="dark-input"
+                                   GridPane.rowIndex="0" GridPane.columnIndex="3"/>
+
+                        <Label text="Activity" styleClass="dark-form-label" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                        <TextField fx:id="titleField" promptText="Visit Cox's Bazar Beach" styleClass="dark-input"
+                                   GridPane.rowIndex="1" GridPane.columnIndex="1" GridPane.columnSpan="3"/>
+
+                        <Label text="Location" styleClass="dark-form-label" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                        <TextField fx:id="locationField" promptText="Cox's Bazar Beach" styleClass="dark-input"
+                                   GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+                        <Label text="Notes" styleClass="dark-form-label" GridPane.rowIndex="2" GridPane.columnIndex="2"/>
+                        <TextField fx:id="notesField" promptText="Things to remember" styleClass="dark-input"
+                                   GridPane.rowIndex="2" GridPane.columnIndex="3"/>
+
+                    </GridPane>
+
+                    <HBox spacing="10" alignment="CENTER_RIGHT">
+
+                        <Button fx:id="addActivityButton" text="+  Add Activity" onAction="#handleAddActivity" styleClass="dark-primary-button"/>
+                        <Button fx:id="updateActivityButton" text="✓  Update Activity" onAction="#handleUpdateActivity" visible="false" managed="false" styleClass="dark-secondary-button"/>
+                        <Button fx:id="cancelEditButton" text="Cancel Edit" onAction="#handleCancelEdit" visible="false" managed="false" styleClass="dark-danger-button"/>
+
+                    </HBox>
+
+                </VBox>
+
+
+                <!-- ITINERARY TABLE CARD -->
+                <VBox spacing="12" styleClass="dark-glass-card">
+
+                    <HBox alignment="CENTER_LEFT">
+                        <VBox spacing="3">
+                            <Label text="Your Journey" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: white;"/>
+                            <Label text="All planned activities for this trip" styleClass="dark-subtitle"/>
+                        </VBox>
+                        <Region HBox.hgrow="ALWAYS"/>
+                        <Label text="ITINERARY" style="-fx-font-size: 11px; -fx-font-weight: bold; -fx-text-fill: #9fb3c4;"/>
+                    </HBox>
+
+                    <TableView fx:id="itineraryTable" prefHeight="380" styleClass="dark-table-view">
+                        <columns>
+                            <TableColumn fx:id="dayColumn" text="DAY" prefWidth="90"/>
+                            <TableColumn fx:id="timeColumn" text="TIME" prefWidth="120"/>
+                            <TableColumn fx:id="titleColumn" text="ACTIVITY" prefWidth="280"/>
+                            <TableColumn fx:id="locationColumn" text="LOCATION" prefWidth="240"/>
+                            <TableColumn fx:id="notesColumn" text="NOTES" prefWidth="280"/>
+                        </columns>
+                        <placeholder>
+                            <Label text="No activities planned yet — add your first one above." styleClass="dark-subtitle"/>
+                        </placeholder>
+                    </TableView>
+
+                    <HBox spacing="10" alignment="CENTER_RIGHT">
+                        <Button text="Update Selected" onAction="#handleUpdateActivity" styleClass="dark-secondary-button"/>
+                        <Button text="Delete Selected" onAction="#handleDeleteActivity" styleClass="dark-danger-button"/>
+                    </HBox>
+
+                </VBox>
+
+            </VBox>
+
+        </content>
+
+    </ScrollPane>
+
+</StackPane>

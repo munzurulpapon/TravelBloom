@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+
+<StackPane stylesheets="@../style/style.css"
+           styleClass="auth-page"
+           xmlns="http://javafx.com/javafx"
+           xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="com.travelbloom.controller.SignupController">
+
+    <Region styleClass="auth-background"/>
+    <Region styleClass="auth-blob-1" StackPane.alignment="TOP_LEFT"/>
+    <Region styleClass="auth-blob-2" StackPane.alignment="BOTTOM_RIGHT"/>
+
+    <VBox styleClass="auth-card"
+          maxWidth="420"
+          maxHeight="640"
+          spacing="16"
+          alignment="CENTER">
+
+        <Label text="🌍" style="-fx-font-size: 42px;"/>
+
+        <Label text="Create your account" styleClass="auth-title"/>
+
+        <Label text="Start planning trips you'll love."
+               styleClass="auth-subtitle"/>
+
+        <VBox spacing="12" style="-fx-padding: 6 0 0 0;">
+
+            <VBox spacing="6">
+                <Label text="Username" styleClass="auth-field-label"/>
+                <TextField fx:id="usernameField"
+                           promptText="Choose a username"
+                           styleClass="auth-input"/>
+            </VBox>
+
+            <VBox spacing="6">
+                <Label text="Email (optional)" styleClass="auth-field-label"/>
+                <TextField fx:id="emailField"
+                           promptText="you@example.com"
+                           styleClass="auth-input"/>
+            </VBox>
+
+            <VBox spacing="6">
+                <Label text="Password" styleClass="auth-field-label"/>
+                <PasswordField fx:id="passwordField"
+                               promptText="At least 4 characters"
+                               styleClass="auth-input"/>
+            </VBox>
+
+            <VBox spacing="6">
+                <Label text="Confirm Password" styleClass="auth-field-label"/>
+                <PasswordField fx:id="confirmPasswordField"
+                               promptText="Re-enter your password"
+                               styleClass="auth-input"/>
+            </VBox>
+
+            <Label fx:id="errorLabel"
+                   styleClass="auth-error"
+                   wrapText="true"/>
+
+            <Button fx:id="signupButton"
+                    text="Create Account"
+                    onAction="#handleSignup"
+                    styleClass="auth-primary-button"
+                    maxWidth="Infinity"/>
+
+            <HBox alignment="CENTER" spacing="4">
+                <Label text="Already have an account?" styleClass="auth-footer-text"/>
+                <Hyperlink fx:id="loginLink"
+                           text="Log in"
+                           onAction="#handleGoToLogin"/>
+            </HBox>
+
+        </VBox>
+
+    </VBox>
+
+</StackPane>

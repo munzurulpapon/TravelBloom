@@ -129,4 +129,4 @@ src/main/resources/
 
 ## 📄 License
 
-This project is for educational purposes. Add a license of your choice (e.g. MIT) before publishing.
+This project is for educational purposes. 
